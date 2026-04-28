@@ -5,6 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WK Studio — Presença Digital que Gera Clientes</title>
   <meta name="description" content="WK Studio cria sites estratégicos e presença digital para empresas locais que querem atrair mais clientes e crescer online." />
+
+  <!-- Favicon inline SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230B0B0B'/><text y='72' x='8' font-size='62' font-family='Georgia,serif' font-weight='700' fill='%23C6A85A'>W</text></svg>" />
+
+  <!-- Theme color (barra do navegador mobile) -->
+  <meta name="theme-color" content="#0B0B0B" />
+
+  <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://wkstudio.com.br/" />
+  <meta property="og:title"       content="WK Studio — Presença Digital que Gera Clientes" />
+  <meta property="og:description" content="Criamos sites estratégicos e presença digital completa para empresas locais que querem crescer e atrair clientes de forma consistente." />
+  <meta property="og:image"       content="https://wkstudio.com.br/og-image.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="pt_BR" />
+  <meta property="og:site_name"   content="WK Studio" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="WK Studio — Presença Digital que Gera Clientes" />
+  <meta name="twitter:description" content="Criamos sites estratégicos e presença digital completa para empresas locais que querem crescer e atrair clientes de forma consistente." />
+  <meta name="twitter:image"       content="https://wkstudio.com.br/og-image.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -23,11 +47,11 @@
         <a href="#planos">Planos</a>
       </nav>
       <a href="#" class="btn btn-gold nav-cta" id="navWhatsapp">Falar no WhatsApp</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menu mobile">
       <a href="#problema" class="mobile-link">O Problema</a>
       <a href="#servicos" class="mobile-link">Serviços</a>
       <a href="#projetos" class="mobile-link">Projetos</a>
