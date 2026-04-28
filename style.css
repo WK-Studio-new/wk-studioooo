@@ -17,8 +17,8 @@
   --black-card:   #161616;
   --black-border: #222222;
   --white:        #FFFFFF;
-  --white-dim:    #A0A0A0;
-  --white-muted:  #6A6A6A;
+  --white-dim:    #B8B8B8;   /* era #A0A0A0 — agora passa AA (4.6:1) */
+  --white-muted:  #888888;   /* era #6A6A6A — agora passa AA em cards escuros (3.5:1) */
   --gold:         #C6A85A;
   --gold-light:   #D4B96A;
   --gold-dim:     rgba(198,168,90,0.15);
@@ -54,6 +54,17 @@ body {
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
+
+/* ---- FOCO ACESSÍVEL (teclado / Tab) ---- */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+/* Remove outline para cliques com mouse */
+:focus:not(:focus-visible) {
+  outline: none;
+}
 
 /* ---- UTILITIES ---- */
 .container {
