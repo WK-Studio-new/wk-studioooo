@@ -67,6 +67,8 @@
   function toggleMenu() {
     menuOpen = !menuOpen;
     mobileMenu.classList.toggle("open", menuOpen);
+    hamburger.setAttribute("aria-expanded", menuOpen ? "true" : "false");
+    hamburger.setAttribute("aria-label", menuOpen ? "Fechar menu" : "Abrir menu");
 
     // Animar hamburguer → X
     const spans = hamburger.querySelectorAll("span");
@@ -85,6 +87,8 @@
     if (!menuOpen) return;
     menuOpen = false;
     mobileMenu.classList.remove("open");
+    hamburger.setAttribute("aria-expanded", "false");
+    hamburger.setAttribute("aria-label", "Abrir menu");
     const spans = hamburger.querySelectorAll("span");
     spans[0].style.transform = "";
     spans[1].style.opacity = "";
