@@ -7,7 +7,7 @@
   "use strict";
 
   /* ---- CONFIGURAÇÃO ---- */
-  const WHATSAPP_NUMBER = "5534999999999"; // 🔧 Substitua pelo número real (DDI+DDD+número)
+  const WHATSAPP_NUMBER = "5577999684834";
   const WHATSAPP_MESSAGE = encodeURIComponent(
     "Olá! Vim pelo site da WK Studio e gostaria de saber mais sobre os serviços de criação de site e presença digital. Poderia me ajudar?"
   );
