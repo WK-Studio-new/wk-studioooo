@@ -654,44 +654,39 @@ ul {
   transform: translateY(-6px);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
 }
+
+/* ── Correção: imagem sempre preenche o card ── */
 .projeto-img {
   position: relative;
   height: 220px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.projeto-img--oficina {
-  background: linear-gradient(135deg, #1a120a, #2a1f10);
-  position: relative;
+  /* removido display:flex que conflitava com position:absolute das imgs */
 }
 
-.projeto-img--oficina img {
+/* Regra genérica: qualquer img dentro de .projeto-img preenche o espaço */
+.projeto-img img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: inherit;
   display: block;
+}
+
+/* Backgrounds por projeto — apenas gradiente, sem redefinir img */
+.projeto-img--oficina {
+  background: linear-gradient(135deg, #1a120a, #2a1f10);
 }
 .projeto-img--doce {
   background: linear-gradient(135deg, #2a1a0f, #3a2518);
-  position: relative;
 }
-.projeto-img--doce .projeto-doce-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: inherit;
-  display: block;
-}
+
+/* Oculta o mockup SVG/HTML quando há imagem real */
 .projeto-img--doce .projeto-mockup {
   display: none;
 }
+/* ─────────────────────────────────────────── */
+
 .projeto-overlay {
   position: absolute;
   top: 12px;
