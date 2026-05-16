@@ -1,915 +1,1400 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WK Studio — Soluções Digitais para Negócios Locais</title>
-    <meta
-      name="description"
-      content="A WK Studio desenvolve soluções digitais completas para empresas locais: sites profissionais, presença no Google, Instagram e WhatsApp integrados."
-    />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WK Studio — Presença Digital para Negócios Locais na Bahia | Do Google ao WhatsApp</title>
+<meta name="description" content="Do Google ao WhatsApp: criamos presença digital completa para negócios locais na Bahia. Sites, Google Meu Negócio, Instagram e WhatsApp em 7 dias. WK Studio — Welky Kauã.">
+<meta property="og:title" content="WK Studio — Presença Digital Completa para Negócios na Bahia">
+<meta property="og:description" content="Do Google ao WhatsApp: presença digital completa para negócios locais na Bahia. Entrega em 7 dias.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#080c10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230B0B0B'/><text y='72' x='8' font-size='62' font-family='Georgia,serif' font-weight='700' fill='%23C6A85A'>W</text></svg>"
-    />
-    <meta name="theme-color" content="#0B0B0B" />
+<style>
+/* ══════════════════════════════
+   RESET & ROOT
+══════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://wkstudio.com.br/" />
-    <meta
-      property="og:title"
-      content="WK Studio — Soluções Digitais para Negócios Locais"
-    />
-    <meta
-      property="og:description"
-      content="Criamos presença digital completa para empresas locais: site, Google, Instagram e WhatsApp — soluções integradas para o crescimento do seu negócio."
-    />
-    <meta property="og:image" content="https://wkstudio.com.br/og-image.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content="WK Studio — Welky Kauã" />
+:root {
+  --bg:        #080c10;
+  --bg2:       #0d1318;
+  --bg3:       #111820;
+  --card:      #0f1520;
+  --border:    rgba(255,255,255,0.07);
+  --accent:    #00c896;
+  --accent-d:  #00a07a;
+  --blue:      #00a8ff;
+  --text:      #e2e8ef;
+  --muted:     #7a8899;
+  --dim:       #3d4f5e;
+  --ff-d:      'Playfair Display', Georgia, serif;
+  --ff-b:      'Nunito', system-ui, sans-serif;
+  --radius:    14px;
+  --max:       1160px;
+}
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="WK Studio — Soluções Digitais para Negócios Locais"
-    />
-    <meta
-      name="twitter:description"
-      content="Criamos presença digital completa para empresas locais: site, Google, Instagram e WhatsApp — soluções integradas para o crescimento do seu negócio."
-    />
-    <meta name="twitter:image" content="https://wkstudio.com.br/og-image.jpg" />
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ff-b);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- NAVBAR -->
-    <header class="navbar" id="navbar">
-      <div class="container nav-inner">
-        <a href="#hero" class="logo">WK<span>Studio</span></a>
-        <nav class="nav-links">
-          <a href="#contexto">Contexto</a>
-          <a href="#servicos">Soluções</a>
-          <a href="#processo">Processo</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#contato">Contato</a>
-        </nav>
-        <a href="#contato" class="btn btn-gold nav-cta" id="navWhatsapp"
-          >Fale conosco</a
-        >
-        <button
-          class="hamburger"
-          id="hamburger"
-          aria-label="Abrir menu"
-          aria-expanded="false"
-          aria-controls="mobileMenu"
-        >
-          <span></span><span></span><span></span>
-        </button>
+/* ── background grid ── */
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background-image:
+    linear-gradient(rgba(0,200,150,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,200,150,.025) 1px, transparent 1px);
+  background-size: 52px 52px;
+  pointer-events:none; z-index:0;
+}
+
+/* ── orbs ── */
+.orb { position:fixed; border-radius:50%; filter:blur(130px); pointer-events:none; z-index:0; }
+.orb-1 { width:700px; height:700px; background:rgba(0,200,150,.055); top:-250px; left:-200px; }
+.orb-2 { width:600px; height:600px; background:rgba(0,168,255,.045); bottom:-200px; right:-150px; }
+
+a { color:inherit; text-decoration:none; }
+img { display:block; max-width:100%; }
+
+.container { max-width: var(--max); margin:0 auto; padding:0 24px; position:relative; z-index:1; }
+
+/* ══════════════════════════════
+   NAV
+══════════════════════════════ */
+nav {
+  position: fixed; top:0; left:0; right:0;
+  z-index: 90;
+  backdrop-filter: blur(16px);
+  background: rgba(8,12,16,.82);
+  border-bottom: 1px solid var(--border);
+  height: 62px;
+  display: flex; align-items: center;
+}
+.nav-inner {
+  width:100%; max-width:var(--max); margin:0 auto; padding:0 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.nav-logo {
+  font-family: var(--ff-b);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links { display:flex; align-items:center; gap:28px; }
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+  transition: color .2s;
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  font-size: 13px; font-weight: 600;
+  padding: 9px 18px;
+  background: var(--accent);
+  color: #041410;
+  border-radius: 8px;
+  transition: opacity .2s;
+}
+.nav-cta:hover { opacity:.88; }
+.nav-mobile { display:none; }
+@media (max-width: 720px) {
+  .nav-links { display:none; }
+  .nav-mobile { display:flex; align-items:center; gap:12px; }
+  .nav-mobile .nav-cta { font-size:12px; padding:8px 14px; }
+}
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+#hero {
+  padding: 152px 24px 100px;
+  max-width: var(--max); margin:0 auto;
+  position:relative; z-index:1;
+}
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase;
+  color: var(--accent); margin-bottom:20px;
+}
+.hero-eyebrow::before { content:''; display:block; width:24px; height:1px; background:var(--accent); }
+
+h1 {
+  font-family: var(--ff-d);
+  font-size: clamp(36px, 6vw, 68px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 24px;
+  max-width: 800px;
+}
+h1 span { color: var(--accent); }
+h1 em { font-style:normal; color: var(--blue); }
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.75;
+  margin-bottom: 36px;
+}
+
+.hero-btns { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:56px; }
+.btn-primary {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:14px 24px; background:var(--accent); color:#041410;
+  font-weight:600; font-size:14px; border-radius:10px;
+  transition: opacity .2s, transform .15s;
+}
+.btn-primary:hover { opacity:.9; transform:scale(.99); }
+.btn-ghost {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:14px 24px;
+  border: 1px solid var(--border);
+  color: var(--text); font-size:14px; font-weight:500;
+  border-radius:10px; transition: border-color .2s, background .2s;
+}
+.btn-ghost:hover { border-color:rgba(255,255,255,.18); background:rgba(255,255,255,.04); }
+
+.hero-stats { display:flex; flex-wrap:wrap; gap:32px; }
+.stat-item { display:flex; flex-direction:column; gap:2px; }
+.stat-num {
+  font-family:var(--ff-b); font-size:28px; font-weight:800;
+  color:#fff; letter-spacing:-0.03em;
+}
+.stat-num span { color:var(--accent); }
+.stat-label { font-size:12px; color:var(--muted); }
+
+/* ══════════════════════════════
+   SECTION TITLES
+══════════════════════════════ */
+.s-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:14px;
+}
+.s-eyebrow::before { content:''; display:block; width:20px; height:1px; background:var(--accent); }
+
+h2 {
+  font-family: var(--ff-d);
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 14px;
+}
+h2 span { color: var(--accent); }
+
+.s-sub {
+  font-size: 15px; color: var(--muted); line-height:1.75;
+  max-width: 520px; margin-bottom: 52px;
+}
+
+section { padding: 88px 0; position:relative; z-index:1; }
+
+/* ══════════════════════════════
+   CONTEXTO
+══════════════════════════════ */
+#contexto { background: var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+
+.context-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+@media (max-width:640px) { .context-grid { grid-template-columns:1fr; } }
+
+.context-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  opacity:0; transform:translateY(20px);
+  animation: fadeUp .5s ease forwards;
+}
+.context-card:nth-child(1){ animation-delay:.1s; }
+.context-card:nth-child(2){ animation-delay:.18s; }
+.context-card:nth-child(3){ animation-delay:.26s; }
+.context-card:nth-child(4){ animation-delay:.34s; }
+
+.context-icon { font-size:22px; margin-bottom:14px; }
+.context-card h3 { font-family:var(--ff-b); font-size:15px; font-weight:700; color:#fff; margin-bottom:8px; }
+.context-card p { font-size:13.5px; color:var(--muted); line-height:1.7; }
+
+/* ══════════════════════════════
+   SERVIÇOS (cards)
+══════════════════════════════ */
+.serv-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+}
+@media (max-width:900px){ .serv-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .serv-grid { grid-template-columns:1fr; } }
+
+.serv-card {
+  position:relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px 24px;
+  cursor:pointer;
+  transition: transform .3s cubic-bezier(.22,.68,0,1.2), border-color .3s, box-shadow .3s;
+  overflow:hidden;
+  opacity:0; transform:translateY(24px);
+  animation: fadeUp .5s ease forwards;
+}
+.serv-card:nth-child(1){ animation-delay:.05s; }
+.serv-card:nth-child(2){ animation-delay:.10s; }
+.serv-card:nth-child(3){ animation-delay:.15s; }
+.serv-card:nth-child(4){ animation-delay:.20s; }
+.serv-card:nth-child(5){ animation-delay:.25s; }
+.serv-card:nth-child(6){ animation-delay:.30s; }
+.serv-card:nth-child(7){ animation-delay:.35s; }
+.serv-card:nth-child(8){ animation-delay:.40s; }
+.serv-card:nth-child(9){ animation-delay:.45s; }
+.serv-card:nth-child(10){ animation-delay:.50s; }
+.serv-card:nth-child(11){ animation-delay:.55s; }
+
+.serv-card::before {
+  content:''; position:absolute; inset:0; border-radius:16px;
+  background:radial-gradient(ellipse at top left, rgba(0,200,150,.08) 0%, transparent 60%);
+  opacity:0; transition:opacity .35s;
+}
+.serv-card:hover { transform:translateY(-6px); border-color:rgba(0,200,150,.28); box-shadow:0 0 0 1px rgba(0,200,150,.14), 0 20px 60px rgba(0,0,0,.5); }
+.serv-card:hover::before { opacity:1; }
+
+.serv-num { position:absolute; top:20px; right:20px; font-family:var(--ff-b); font-size:11px; font-weight:700; color:var(--dim); }
+.serv-icon { width:48px; height:48px; border-radius:12px; background:rgba(0,200,150,.08); border:1px solid rgba(0,200,150,.15); display:flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:18px; transition:background .3s; }
+.serv-card:hover .serv-icon { background:rgba(0,200,150,.15); border-color:rgba(0,200,150,.32); }
+.serv-name { font-family:var(--ff-b); font-size:16px; font-weight:700; color:#fff; margin-bottom:4px; }
+.serv-tag { font-size:12px; color:var(--accent); font-weight:500; margin-bottom:12px; }
+.serv-desc { font-size:13px; color:var(--muted); line-height:1.65; margin-bottom:16px; }
+.serv-bullets { list-style:none; display:flex; flex-direction:column; gap:6px; margin-bottom:20px; }
+.serv-bullets li { font-size:12.5px; color:#9db3c4; display:flex; align-items:flex-start; gap:8px; line-height:1.5; }
+.serv-bullets li::before { content:'✦'; color:var(--accent); font-size:8px; flex-shrink:0; margin-top:4px; opacity:.7; }
+.btn-ver {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:12px; font-weight:500; color:var(--accent);
+  background:rgba(0,200,150,.08); border:1px solid rgba(0,200,150,.2);
+  border-radius:8px; padding:8px 14px; cursor:pointer;
+  transition:background .2s, gap .2s; font-family:var(--ff-b);
+}
+.btn-ver:hover { background:rgba(0,200,150,.16); gap:10px; }
+
+/* ══════════════════════════════
+   PROCESSO
+══════════════════════════════ */
+#processo { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.processo-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+@media (max-width:800px){ .processo-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:480px){ .processo-grid { grid-template-columns:1fr; } }
+
+.proc-card { padding:28px 24px; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg3); position:relative; }
+.proc-num { font-family:var(--ff-b); font-size:42px; font-weight:800; color:rgba(0,200,150,.1); line-height:1; margin-bottom:16px; }
+.proc-card h3 { font-family:var(--ff-b); font-size:15px; font-weight:700; color:#fff; margin-bottom:8px; }
+.proc-card p { font-size:13.5px; color:var(--muted); line-height:1.7; }
+
+/* ══════════════════════════════
+   PROJETOS
+══════════════════════════════ */
+.proj-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+@media (max-width:640px){ .proj-grid { grid-template-columns:1fr; } }
+
+.proj-card {
+  border:1px solid var(--border); border-radius:16px; overflow:hidden;
+  background:var(--card);
+  transition: border-color .3s, transform .3s;
+}
+.proj-card:hover { border-color:rgba(0,200,150,.25); transform:translateY(-4px); }
+.proj-img { width:100%; height:220px; object-fit:cover; }
+.proj-body { padding:24px; }
+.proj-cat { font-size:11px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+.proj-card h3 { font-family:var(--ff-d); font-size:18px; font-weight:700; color:#fff; margin-bottom:8px; }
+.proj-card p { font-size:13.5px; color:var(--muted); line-height:1.7; margin-bottom:16px; }
+.proj-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+.proj-tag { font-size:11px; padding:4px 10px; border-radius:6px; background:rgba(0,200,150,.08); border:1px solid rgba(0,200,150,.18); color:var(--accent); }
+.proj-result {
+  background:rgba(0,200,150,.06); border:1px solid rgba(0,200,150,.14);
+  border-radius:8px; padding:12px 14px; margin-bottom:16px;
+  display:flex; align-items:center; gap:10px;
+}
+.proj-result-num { font-family:var(--ff-d); font-size:22px; font-weight:800; color:var(--accent); }
+.proj-result-label { font-size:12px; color:var(--muted); line-height:1.4; }
+.btn-proj {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:12px; font-weight:500; color:var(--accent);
+  border:1px solid rgba(0,200,150,.25); border-radius:8px; padding:8px 14px;
+  transition: background .2s;
+}
+.btn-proj:hover { background:rgba(0,200,150,.08); }
+
+/* ══════════════════════════════
+   SOBRE
+══════════════════════════════ */
+#sobre { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.sobre-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+@media (max-width:720px){ .sobre-inner { grid-template-columns:1fr; } }
+
+.sobre-avatar-wrap { display:flex; justify-content:center; }
+.sobre-avatar {
+  width:220px; height:220px; border-radius:50%;
+  border:2px solid rgba(0,200,150,.3);
+  background:var(--bg3);
+  display:flex; align-items:center; justify-content:center;
+  font-size:80px;
+  box-shadow:0 0 60px rgba(0,200,150,.1);
+}
+.sobre-text .s-eyebrow { margin-bottom:12px; }
+.sobre-text h2 { margin-bottom:12px; }
+.sobre-text p { font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:16px; }
+.sobre-badges { display:flex; flex-wrap:wrap; gap:8px; }
+.sobre-badge { font-size:12px; padding:6px 12px; border-radius:8px; background:rgba(255,255,255,.05); border:1px solid var(--border); color:var(--text); }
+
+/* ══════════════════════════════
+   DEPOIMENTOS
+══════════════════════════════ */
+.dep-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+@media (max-width:600px){ .dep-grid { grid-template-columns:1fr; } }
+
+.dep-card {
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:28px 24px;
+}
+.dep-stars { color:#f5c842; font-size:14px; margin-bottom:14px; letter-spacing:2px; }
+.dep-text { font-size:14px; color:var(--text); line-height:1.75; margin-bottom:18px; font-style:italic; }
+.dep-author { display:flex; align-items:center; gap:12px; }
+.dep-avatar { width:40px; height:40px; border-radius:50%; background:rgba(0,200,150,.1); border:1px solid rgba(0,200,150,.2); display:flex; align-items:center; justify-content:center; font-size:18px; }
+.dep-name { font-size:13px; font-weight:600; color:#fff; }
+.dep-role { font-size:12px; color:var(--muted); }
+
+/* ══════════════════════════════
+   MANUTENÇÃO
+══════════════════════════════ */
+#manutencao { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.man-inner { display:grid; grid-template-columns:1fr 340px; gap:48px; align-items:center; }
+@media (max-width:760px){ .man-inner { grid-template-columns:1fr; } }
+
+.man-list { display:flex; flex-direction:column; gap:14px; }
+.man-item { display:flex; align-items:center; gap:12px; font-size:14px; color:var(--text); }
+.man-check { width:24px; height:24px; border-radius:6px; background:rgba(0,200,150,.1); border:1px solid rgba(0,200,150,.25); display:flex; align-items:center; justify-content:center; color:var(--accent); font-size:13px; flex-shrink:0; }
+
+.man-plan {
+  background:var(--card); border:1px solid rgba(0,200,150,.25);
+  border-radius:16px; padding:28px 24px;
+  box-shadow:0 0 60px rgba(0,200,150,.05);
+}
+.man-plan-label { font-size:11px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
+.man-plan-price { font-family:var(--ff-d); font-size:34px; font-weight:800; color:#fff; margin-bottom:4px; }
+.man-plan-price small { font-size:14px; font-weight:400; color:var(--muted); }
+.man-plan-sub { font-size:13px; color:var(--muted); margin-bottom:20px; }
+.man-plan-items { display:flex; flex-direction:column; gap:10px; margin-bottom:24px; }
+.man-plan-item { font-size:13px; color:var(--text); display:flex; gap:8px; align-items:flex-start; }
+.man-plan-item::before { content:'✓'; color:var(--accent); font-weight:700; flex-shrink:0; }
+
+/* ══════════════════════════════
+   CONTATO
+══════════════════════════════ */
+#contato {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  border-top:1px solid var(--border);
+}
+.contato-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+@media (max-width:760px){ .contato-inner { grid-template-columns:1fr; } }
+
+.contato-left h2 { margin-bottom:14px; }
+.contato-left p { font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:28px; }
+.contato-perks { display:flex; flex-direction:column; gap:12px; }
+.contato-perk { display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text); }
+.contato-perk::before { content:'✓'; color:var(--accent); font-weight:700; flex-shrink:0; font-size:15px; }
+
+.contato-form { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:32px; }
+.form-title { font-family:var(--ff-d); font-size:18px; font-weight:700; color:#fff; margin-bottom:6px; }
+.form-sub { font-size:13px; color:var(--muted); margin-bottom:24px; }
+.form-group { display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
+.form-label { font-size:12px; font-weight:500; color:var(--muted); letter-spacing:.04em; }
+.form-input, .form-select, .form-textarea {
+  background:var(--bg2); border:1px solid var(--border); border-radius:8px;
+  padding:11px 14px; font-size:14px; color:var(--text); font-family:var(--ff-b);
+  transition:border-color .2s; outline:none; width:100%;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color:rgba(0,200,150,.4); }
+.form-select { appearance:none; cursor:pointer; }
+.form-textarea { resize:vertical; min-height:100px; }
+.form-btn {
+  width:100%; padding:14px; background:var(--accent); color:#041410;
+  border:none; border-radius:10px; font-size:14px; font-weight:600;
+  font-family:var(--ff-b); cursor:pointer; transition:opacity .2s;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.form-btn:hover { opacity:.88; }
+.form-note { font-size:11px; color:var(--dim); text-align:center; margin-top:10px; }
+
+.whatsapp-direct {
+  display:flex; align-items:center; gap:12px;
+  background:rgba(37,211,102,.08); border:1px solid rgba(37,211,102,.2);
+  border-radius:10px; padding:14px 16px; margin-top:16px;
+  color:var(--text); font-size:13px; transition:background .2s;
+}
+.whatsapp-direct:hover { background:rgba(37,211,102,.14); }
+.wa-icon { font-size:22px; flex-shrink:0; }
+.wa-text strong { display:block; font-weight:600; color:#fff; font-size:13.5px; }
+.wa-text span { color:var(--muted); font-size:12px; }
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer {
+  background:var(--bg2); border-top:1px solid var(--border);
+  padding:48px 0 32px;
+  position:relative; z-index:1;
+}
+.footer-inner { display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px; margin-bottom:40px; }
+@media (max-width:640px){ .footer-inner { grid-template-columns:1fr; } }
+
+.footer-brand-name { font-family:var(--ff-b); font-size:20px; font-weight:800; color:#fff; margin-bottom:8px; }
+.footer-brand-name span { color:var(--accent); }
+.footer-brand-desc { font-size:13px; color:var(--muted); line-height:1.7; max-width:280px; }
+.footer-col-title { font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--dim); margin-bottom:14px; }
+.footer-links { display:flex; flex-direction:column; gap:9px; }
+.footer-links a { font-size:13px; color:var(--muted); transition:color .2s; }
+.footer-links a:hover { color:var(--accent); }
+.footer-bottom { border-top:1px solid var(--border); padding-top:24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+.footer-copy { font-size:12px; color:var(--dim); }
+
+/* ══════════════════════════════
+   MODAL
+══════════════════════════════ */
+.modal-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,.8); backdrop-filter:blur(6px);
+  z-index:100; display:flex; align-items:center; justify-content:center; padding:24px;
+  opacity:0; pointer-events:none; transition:opacity .25s;
+}
+.modal-overlay.open { opacity:1; pointer-events:all; }
+.modal {
+  background:var(--bg2); border:1px solid rgba(255,255,255,.1);
+  border-radius:20px; max-width:560px; width:100%; padding:36px;
+  position:relative;
+  transform:translateY(20px) scale(.97);
+  transition:transform .3s cubic-bezier(.22,.68,0,1.2);
+  max-height:90vh; overflow-y:auto;
+}
+.modal-overlay.open .modal { transform:translateY(0) scale(1); }
+.modal-close {
+  position:absolute; top:16px; right:16px;
+  width:32px; height:32px; background:rgba(255,255,255,.06);
+  border:1px solid var(--border); border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; color:var(--muted); font-size:16px; transition:background .2s, color .2s;
+}
+.modal-close:hover { background:rgba(255,255,255,.12); color:var(--text); }
+.modal-icon { width:56px; height:56px; border-radius:14px; background:rgba(0,200,150,.1); border:1px solid rgba(0,200,150,.2); display:flex; align-items:center; justify-content:center; font-size:26px; margin-bottom:18px; }
+.modal-name { font-family:var(--ff-d); font-size:22px; font-weight:800; color:#fff; margin-bottom:4px; letter-spacing:-0.02em; }
+.modal-tagline { font-size:13px; color:var(--accent); margin-bottom:18px; font-weight:500; }
+.modal-desc { font-size:14px; color:var(--muted); line-height:1.75; margin-bottom:22px; border-bottom:1px solid var(--border); padding-bottom:22px; }
+.modal-section-title { font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--dim); margin-bottom:12px; }
+.modal-included { list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:22px; }
+.modal-included li { font-size:13.5px; color:var(--text); display:flex; align-items:flex-start; gap:10px; line-height:1.5; }
+.modal-included li::before { content:'✓'; color:var(--accent); font-weight:700; font-size:13px; flex-shrink:0; margin-top:1px; }
+.modal-meta { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:22px; }
+.modal-tag { font-size:12px; padding:6px 12px; border-radius:8px; font-weight:500; }
+.mt-prazo { background:rgba(0,168,255,.1); color:#5bc4ff; border:1px solid rgba(0,168,255,.2); }
+.mt-tipo  { background:rgba(0,200,150,.08); color:var(--accent); border:1px solid rgba(0,200,150,.2); }
+.modal-cta {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  width:100%; padding:14px; background:var(--accent); color:#041410;
+  border:none; border-radius:10px; font-size:14px; font-weight:600;
+  cursor:pointer; transition:opacity .2s; font-family:var(--ff-b); text-decoration:none;
+}
+.modal-cta:hover { opacity:.88; }
+.modal::-webkit-scrollbar { width:4px; }
+.modal::-webkit-scrollbar-thumb { background:var(--dim); border-radius:4px; }
+
+/* ══════════════════════════════
+   ANIMATIONS
+══════════════════════════════ */
+@keyframes fadeUp {
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* ══════════════════════════════
+   WHATSAPP FLOAT
+══════════════════════════════ */
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.wa-float-bubble {
+  background: #1dba64;
+  border-radius: 50%;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(29,186,100,.45), 0 2px 8px rgba(0,0,0,.3);
+  transition: transform .25s cubic-bezier(.22,.68,0,1.4), box-shadow .25s;
+  animation: waBounce 3s 2s infinite;
+}
+.wa-float-bubble:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 32px rgba(29,186,100,.55), 0 2px 8px rgba(0,0,0,.3);
+}
+.wa-float-bubble svg { width:28px; height:28px; fill:#fff; }
+.wa-float-tip {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--text);
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0,0,0,.3);
+  animation: fadeIn .3s ease;
+  display: none;
+}
+.wa-float-tip strong { display:block; font-weight:600; color:#fff; font-size:13px; }
+.wa-float-tip span { color:var(--muted); font-size:12px; }
+.wa-float:hover .wa-float-tip { display: block; }
+.wa-float-dot {
+  position: absolute;
+  top: 4px; right: 4px;
+  width: 12px; height: 12px;
+  background: #f5c842;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  animation: pulse 2s infinite;
+}
+@keyframes waBounce {
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-6px); }
+}
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+
+/* ══════════════════════════════
+   FAQ
+══════════════════════════════ */
+#faq { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 760px; }
+.faq-item {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color .25s;
+}
+.faq-item.open { border-color: rgba(0,200,150,.3); }
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  user-select: none;
+  transition: color .2s;
+}
+.faq-q:hover { color: #fff; }
+.faq-item.open .faq-q { color: #fff; }
+.faq-icon {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(0,200,150,.1); border: 1px solid rgba(0,200,150,.2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent); font-size: 14px; flex-shrink: 0;
+  transition: transform .3s, background .25s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(0,200,150,.2); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s cubic-bezier(.4,0,.2,1), padding .3s;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.75;
+  padding: 0 24px;
+}
+.faq-item.open .faq-a { max-height: 300px; padding: 0 24px 20px; }
+
+/* ══════════════════════════════
+   CALCULADORA
+══════════════════════════════ */
+#calculadora { background: var(--bg); }
+.calc-wrap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 680px;
+}
+@media (max-width: 600px) { .calc-wrap { padding: 28px 20px; } }
+
+.calc-progress { display: flex; gap: 8px; margin-bottom: 36px; }
+.calc-prog-step {
+  flex: 1; height: 3px; border-radius: 99px;
+  background: var(--border); transition: background .4s;
+}
+.calc-prog-step.done { background: var(--accent); }
+
+.calc-step { display: none; animation: fadeIn .3s ease; }
+.calc-step.active { display: block; }
+
+.calc-q { font-family: var(--ff-d); font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.calc-hint { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+
+.calc-options { display: flex; flex-direction: column; gap: 10px; }
+.calc-opt {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; cursor: pointer;
+  transition: border-color .2s, background .2s;
+  font-size: 14px; color: var(--text);
+}
+.calc-opt:hover { border-color: rgba(0,200,150,.3); background: rgba(0,200,150,.04); }
+.calc-opt.selected { border-color: var(--accent); background: rgba(0,200,150,.08); color: #fff; }
+.calc-opt-icon { font-size: 20px; flex-shrink: 0; }
+
+.calc-nav { display: flex; gap: 10px; margin-top: 28px; }
+.calc-btn-back {
+  padding: 11px 20px; border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; color: var(--muted); background: transparent;
+  cursor: pointer; font-family: var(--ff-b); transition: border-color .2s, color .2s;
+}
+.calc-btn-back:hover { border-color: rgba(255,255,255,.2); color: var(--text); }
+.calc-btn-next {
+  padding: 11px 22px; background: var(--accent); color: #041410;
+  border: none; border-radius: 8px; font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: var(--ff-b); transition: opacity .2s;
+}
+.calc-btn-next:hover { opacity: .88; }
+.calc-btn-next:disabled { opacity: .35; cursor: not-allowed; }
+
+/* Resultado */
+.calc-result { display: none; animation: fadeIn .4s ease; }
+.calc-result.show { display: block; }
+.calc-result-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 12px;
+}
+.calc-result-badge::before { content: ''; display: block; width: 18px; height: 1px; background: var(--accent); }
+.calc-result-plan { font-family: var(--ff-d); font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.calc-result-why { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
+.calc-result-price {
+  display: inline-block;
+  font-family: var(--ff-d); font-size: 32px; font-weight: 800; color: var(--accent);
+  margin-bottom: 20px;
+}
+.calc-result-price small { font-size: 14px; font-weight: 400; color: var(--muted); }
+.calc-result-items { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+.calc-result-item { font-size: 13.5px; color: var(--text); display: flex; align-items: flex-start; gap: 9px; }
+.calc-result-item::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+.calc-result-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.calc-restart { font-size: 12px; color: var(--dim); cursor: pointer; margin-top: 12px; text-decoration: underline; }
+.calc-restart:hover { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero">WK<span>Studio</span></a>
+    <div class="nav-links">
+      <a href="#contexto">Por que digital</a>
+      <a href="#servicos">Soluções</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#calculadora">Plano ideal</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/5577999684834?text=Olá!+Vim+pelo+site+e+quero+saber+mais+sobre+os+planos+da+WK+Studio." target="_blank">Fale conosco</a>
+    <div class="nav-mobile">
+      <a class="nav-cta" href="https://wa.me/5577999684834?text=Olá!+Vim+pelo+site+e+quero+saber+mais." target="_blank">Fale conosco</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero" style="padding-top:0">
+  <div id="hero" style="padding:152px 24px 100px; max-width:var(--max); margin:0 auto;">
+    <div class="hero-eyebrow">Agência digital — Bahia</div>
+    <h1>Do Google ao WhatsApp:<br>presença digital completa<br>para negócios locais <span>na Bahia.</span></h1>
+    <p class="hero-sub">Criamos sites profissionais, configuramos sua presença no Google e estruturamos seu Instagram e WhatsApp — tudo integrado, para que clientes te encontrem antes do concorrente.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="https://wa.me/5577999684834?text=Olá!+Quero+saber+mais+sobre+os+planos+da+WK+Studio." target="_blank">
+        💬 Quero mais clientes
+      </a>
+      <a class="btn-ghost" href="vendas.html">Ver planos e preços</a>
+      <a class="btn-ghost" href="#servicos">Ver soluções</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">7<span>dias</span></div>
+        <div class="stat-label">prazo de entrega</div>
       </div>
-      <div
-        class="mobile-menu"
-        id="mobileMenu"
-        role="navigation"
-        aria-label="Menu mobile"
-      >
-        <a href="#contexto" class="mobile-link">Contexto</a>
-        <a href="#servicos" class="mobile-link">Soluções</a>
-        <a href="#processo" class="mobile-link">Processo</a>
-        <a href="#projetos" class="mobile-link">Projetos</a>
-        <a href="#contato" class="btn btn-gold" id="mobileWhatsapp"
-          >Fale conosco</a
-        >
+      <div class="stat-item">
+        <div class="stat-num">11<span>+</span></div>
+        <div class="stat-label">soluções digitais</div>
       </div>
-    </header>
+      <div class="stat-item">
+        <div class="stat-num">100<span>%</span></div>
+        <div class="stat-label">atendimento pessoal</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="hero-bg">
-        <div class="hero-grid"></div>
-        <div class="hero-glow"></div>
+<!-- ══ CONTEXTO ══ -->
+<section id="contexto">
+  <div class="container">
+    <div class="s-eyebrow">Por que isso importa</div>
+    <h2>Sem presença digital, seu<br>concorrente leva o cliente</h2>
+    <p class="s-sub">No momento em que alguém pesquisa no Google, a decisão já está sendo tomada. Quem aparece primeiro, vende primeiro.</p>
+    <div class="context-grid">
+      <div class="context-card">
+        <div class="context-icon">🔍</div>
+        <h3>Invisibilidade no Google</h3>
+        <p>Seu concorrente aparece no Google Maps e você não? Cada busca que não te encontra é um cliente que vai para outro. Resolvemos isso em dias.</p>
       </div>
-      <div class="container hero-content">
-        <div class="hero-badge reveal">
-          Soluções Digitais para Negócios Locais
-        </div>
-        <h1 class="hero-title reveal">
-          Presença digital<br />
-          profissional para<br />
-          <span class="gold">seu negócio crescer</span>
-        </h1>
-        <p class="hero-sub reveal">
-          Desenvolvemos sites modernos, configuramos sua presença no Google,
-          Instagram e WhatsApp — tudo integrado para potencializar seus
-          resultados.
-        </p>
-        <div class="hero-actions reveal">
-          <a href="#contato" class="btn btn-gold btn-lg" id="heroWhatsapp">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-              />
-            </svg>
-            Fale conosco
-          </a>
-          <a href="vendas.html" class="btn btn-gold btn-lg">Conhecer planos</a>
-          <a href="#servicos" class="btn btn-ghost btn-lg">Ver soluções</a>
-        </div>
-        <div class="hero-stats reveal">
-          <div class="stat">
-            <span class="stat-num">7</span>
-            <span class="stat-label">dias para entrega</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-num">6</span>
-            <span class="stat-label">canais integrados</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-num">100%</span>
-            <span class="stat-label">focado em resultados</span>
-          </div>
-        </div>
+      <div class="context-card">
+        <div class="context-icon">📣</div>
+        <h3>Dependência de indicações</h3>
+        <p>Indicação é ótima, mas é imprevisível. Você precisa de um fluxo constante de clientes chegando — não depender da sorte de alguém te recomendar.</p>
       </div>
-      <div class="hero-scroll"><div class="scroll-line"></div></div>
-    </section>
+      <div class="context-card">
+        <div class="context-icon">💬</div>
+        <h3>Atendimento bagunçado</h3>
+        <p>Cliente manda WhatsApp e não recebe resposta. Chega na hora errada. Não encontra informações claras. Resultado: desiste antes de comprar.</p>
+      </div>
+      <div class="context-card">
+        <div class="context-icon">👀</div>
+        <h3>Imagem que afasta</h3>
+        <p>Sem site profissional e identidade visual coerente, o cliente compara com um concorrente mais organizado — e escolhe o outro. Primeira impressão é tudo.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- CONTEXTO -->
-    <section class="problema" id="contexto">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">O cenário atual</span>
-          <h2 class="section-title">
-            Por que a presença digital
-            <span class="gold">é essencial hoje</span>
-          </h2>
-          <p class="section-sub">
-            No mundo digital, a primeira impressão é online. Empresas sem
-            presença profissional perdem oportunidades valiosas.
-          </p>
-        </div>
-        <div class="dores-grid">
-          <div class="dor-card reveal">
-            <div class="dor-icon">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.35-4.35" />
-              </svg>
-            </div>
-            <h3>Invisibilidade online</h3>
-            <p>
-              Clientes pesquisam serviços no Google, mas não encontram seu
-              negócio. Concorrentes com presença digital levam vantagem.
-            </p>
+<!-- ══ SERVIÇOS ══ -->
+<section id="servicos">
+  <div class="container">
+    <div class="s-eyebrow">O que entregamos</div>
+    <h2>Soluções digitais <span>integradas</span></h2>
+    <p class="s-sub">Do site ao agendamento online — tudo que seu negócio precisa para crescer no digital, em um só lugar.</p>
+    <div class="serv-grid" id="serv-grid"></div>
+  </div>
+</section>
+
+<!-- ══ PROCESSO ══ -->
+<section id="processo">
+  <div class="container">
+    <div class="s-eyebrow">Como trabalhamos</div>
+    <h2>Processo claro, entrega <span>rápida</span></h2>
+    <p class="s-sub">Sem enrolação. Cada etapa tem prazo definido e você acompanha tudo em tempo real.</p>
+    <div class="processo-grid">
+      <div class="proc-card">
+        <div class="proc-num">01</div>
+        <h3>Análise inicial</h3>
+        <p>Avaliamos sua presença atual, identificamos o que está faltando e definimos juntos o que vai ser feito — sem promessa vazia.</p>
+      </div>
+      <div class="proc-card">
+        <div class="proc-num">02</div>
+        <h3>Planejamento</h3>
+        <p>Montamos o plano completo: site, Google, identidade visual e estratégia para WhatsApp e Instagram, tudo alinhado ao seu negócio.</p>
+      </div>
+      <div class="proc-card">
+        <div class="proc-num">03</div>
+        <h3>Desenvolvimento</h3>
+        <p>Executamos tudo: site responsivo, perfis otimizados, sistema de comunicação estruturado. Você vê o progresso a cada etapa.</p>
+      </div>
+      <div class="proc-card">
+        <div class="proc-num">04</div>
+        <h3>Entrega e suporte</h3>
+        <p>Colocamos tudo no ar, te ensinamos a usar e ficamos disponíveis para ajustes. Suporte incluso por 30 dias após a entrega.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJETOS ══ -->
+<section id="projetos">
+  <div class="container">
+    <div class="s-eyebrow">Casos de sucesso</div>
+    <h2>Resultados <span>reais</span></h2>
+    <p class="s-sub">Projetos entregues, clientes satisfeitos. Confira o que construímos juntos.</p>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <img class="proj-img" src="https://wk-studioooo.vercel.app/mg-automecanica-card.jpg" alt="Site MG Automecânica" loading="lazy">
+        <div class="proj-body">
+          <div class="proj-cat">Oficina Mecânica</div>
+          <h3>MG Automecânica</h3>
+          <p>Oficina especializada em motores e câmbio que conquistou novos clientes com site profissional focado em conversão e WhatsApp integrado para agendamentos.</p>
+          <div class="proj-result">
+            <div class="proj-result-num">3x</div>
+            <div class="proj-result-label">mais contatos pelo WhatsApp<br>após o lançamento do site</div>
           </div>
-          <div class="dor-card reveal">
-            <div class="dor-icon">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-            </div>
-            <h3>Dependência de indicações</h3>
-            <p>
-              Seu crescimento depende exclusivamente de indicações. Sem uma
-              estratégia digital consistente, o negócio fica limitado.
-            </p>
+          <div class="proj-tags">
+            <span class="proj-tag">Site</span>
+            <span class="proj-tag">WhatsApp</span>
+            <span class="proj-tag">Google</span>
           </div>
-          <div class="dor-card reveal">
-            <div class="dor-icon">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <path
-                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                />
-              </svg>
-            </div>
-            <h3>Comunicação ineficiente</h3>
-            <p>
-              Clientes tentam contato via WhatsApp fora do horário ou não
-              encontram informações claras, resultando em oportunidades
-              perdidas.
-            </p>
-          </div>
-          <div class="dor-card reveal">
-            <div class="dor-icon">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <rect width="20" height="14" x="2" y="3" rx="2" />
-                <path d="M8 21h8" />
-                <path d="M12 17v4" />
-              </svg>
-            </div>
-            <h3>Imagem desatualizada</h3>
-            <p>
-              Sem site profissional ou perfis organizados, clientes percebem
-              falta de modernidade e confiança na empresa.
-            </p>
-          </div>
+          <a class="btn-proj" href="https://mg-automecanicaa.vercel.app/" target="_blank">Ver projeto →</a>
         </div>
       </div>
-    </section>
-
-    <!-- PROCESSO -->
-    <section class="metodo" id="processo">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">Como trabalhamos</span>
-          <h2 class="section-title">
-            Processo <span class="gold">estruturado e eficiente</span>
-          </h2>
-          <p class="section-sub">
-            Desenvolvemos soluções digitais completas seguindo uma metodologia
-            clara e comprovada para garantir resultados consistentes.
-          </p>
-        </div>
-        <div class="metodo-steps">
-          <div class="metodo-step reveal">
-            <div class="step-num">01</div>
-            <div class="step-content">
-              <h3>Análise inicial</h3>
-              <p>
-                Avaliamos sua presença atual no digital: site, Google, Instagram
-                e WhatsApp. Identificamos oportunidades de melhoria e definimos
-                objetivos claros.
-              </p>
-            </div>
+      <div class="proj-card">
+        <img class="proj-img" src="https://wk-studioooo.vercel.app/doce-sabor-card.jpg" alt="Site Doce Sabor" loading="lazy">
+        <div class="proj-body">
+          <div class="proj-cat">Alimentação</div>
+          <h3>Doce Sabor</h3>
+          <p>Produtora de geleias artesanais que expandiu vendas online com e-commerce completo, carrinho inteligente e integração total com WhatsApp para fechar pedidos.</p>
+          <div class="proj-result">
+            <div class="proj-result-num">+60%</div>
+            <div class="proj-result-label">de alcance nas vendas<br>com o e-commerce</div>
           </div>
-          <div class="metodo-connector reveal"></div>
-          <div class="metodo-step reveal">
-            <div class="step-num">02</div>
-            <div class="step-content">
-              <h3>Planejamento estratégico</h3>
-              <p>
-                Criamos o plano completo: design do site, configuração do Google
-                Meu Negócio, identidade visual e estratégia para redes sociais.
-              </p>
-            </div>
+          <div class="proj-tags">
+            <span class="proj-tag">E-commerce</span>
+            <span class="proj-tag">WhatsApp</span>
+            <span class="proj-tag">Carrinho</span>
           </div>
-          <div class="metodo-connector reveal"></div>
-          <div class="metodo-step reveal">
-            <div class="step-num">03</div>
-            <div class="step-content">
-              <h3>Desenvolvimento e integração</h3>
-              <p>
-                Implementamos todas as soluções: site responsivo, perfis
-                otimizados no Google e Instagram, e sistema de comunicação via
-                WhatsApp.
-              </p>
-            </div>
-          </div>
-          <div class="metodo-connector reveal"></div>
-          <div class="metodo-step reveal">
-            <div class="step-num">04</div>
-            <div class="step-content">
-              <h3>Entrega e acompanhamento</h3>
-              <p>
-                Colocamos tudo no ar e acompanhamos os primeiros resultados.
-                Fornecemos suporte contínuo para ajustes e otimizações.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="metodo-cta reveal">
-          <a href="#contato" class="btn btn-gold btn-lg" id="metodoCta"
-            >Iniciar projeto</a
-          >
+          <a class="btn-proj" href="https://doce-sabor-gamma.vercel.app/" target="_blank">Ver projeto →</a>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- SERVIÇOS -->
-    <section class="servicos" id="servicos">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">O que entregamos</span>
-          <h2 class="section-title">
-            Soluções digitais <span class="gold">integradas</span>
-          </h2>
-          <p class="section-sub">
-            Oferecemos um conjunto completo de serviços para estabelecer e
-            fortalecer a presença digital da sua empresa.
-          </p>
+<!-- ══ SOBRE ══ -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-inner">
+      <div class="sobre-avatar-wrap">
+        <div class="sobre-avatar">👨‍💻</div>
+      </div>
+      <div class="sobre-text">
+        <div class="s-eyebrow">Quem está por trás</div>
+        <h2>Oi, sou o <span>Welky</span></h2>
+        <p>Crio sites e presença digital para negócios locais na Bahia. Atendo cada cliente pessoalmente — sem terceirizar, sem bot, sem papo de grande agência.</p>
+        <p>Comecei a WK Studio porque vi que muitos negócios incríveis perdiam clientes todo dia por não terem presença digital profissional. Minha missão é resolver isso rápido e do jeito certo.</p>
+        <p>Se você quer alguém de confiança, que responde rápido e entrega no prazo — é comigo.</p>
+        <div class="sobre-badges">
+          <span class="sobre-badge">📍 Bahia</span>
+          <span class="sobre-badge">⚡ Entrega em 7 dias</span>
+          <span class="sobre-badge">💬 Atendimento direto</span>
+          <span class="sobre-badge">🔒 Suporte incluso</span>
         </div>
-        <div class="servicos-grid">
-          <div class="servico-card reveal">
-            <div class="servico-num">01</div>
-            <div class="servico-icon">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <rect width="20" height="14" x="2" y="3" rx="2" />
-                <path d="M8 21h8M12 17v4" />
-              </svg>
-            </div>
-            <h3>Site profissional</h3>
-            <p>
-              Desenvolvemos sites modernos e responsivos que representam sua
-              empresa de forma profissional e atraem visitantes qualificados.
-            </p>
-            <ul class="servico-features">
-              <li>Design exclusivo e responsivo</li>
-              <li>Carregamento rápido e otimizado</li>
-              <li>Botão de contato integrado</li>
-              <li>Estrutura pensada para conversão</li>
-            </ul>
-          </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <div class="servico-card reveal">
-            <div class="servico-num">02</div>
-            <div class="servico-icon">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path
-                  d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                />
-              </svg>
-            </div>
-            <h3>Google Meu Negócio</h3>
-            <p>
-              Configuramos seu perfil no Google para aparecer nas buscas locais
-              e facilitar que clientes encontrem seu negócio.
-            </p>
-            <ul class="servico-features">
-              <li>Perfil criado e totalmente otimizado</li>
-              <li>Aparece nas buscas locais</li>
-              <li>Informações completas e atualizadas</li>
-              <li>Configuração para receber avaliações</li>
-            </ul>
-          </div>
-
-          <div class="servico-card reveal">
-            <div class="servico-num">03</div>
-            <div class="servico-icon">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <path
-                  d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                />
-              </svg>
-            </div>
-            <h3>Identidade Visual</h3>
-            <p>
-              Logo, cores e tipografia que fazem sua empresa parecer séria e
-              profissional antes mesmo de o cliente falar com você.
-            </p>
-            <ul class="servico-features">
-              <li>Criação de logotipo profissional</li>
-              <li>Paleta de cores e tipografia</li>
-              <li>Aplicações básicas da marca</li>
-              <li>Arquivos em todos os formatos</li>
-            </ul>
-          </div>
-
-          <div class="servico-card reveal">
-            <div class="servico-num">04</div>
-            <div class="servico-icon">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <rect width="18" height="18" x="3" y="3" rx="2" />
-                <circle cx="9" cy="9" r="2" />
-                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-              </svg>
-            </div>
-            <h3>Edição de Imagens</h3>
-            <p>
-              Fotos tratadas e otimizadas para o site, Google e Instagram.
-              Imagem profissional gera confiança antes mesmo da conversa
-              começar.
-            </p>
-            <ul class="servico-features">
-              <li>Tratamento de fotos profissional</li>
-              <li>Criação de banners e posts</li>
-              <li>Imagens otimizadas para web</li>
-              <li>Estética alinhada à sua marca</li>
-            </ul>
-          </div>
-
-          <div class="servico-card servico-novo reveal">
-            <div class="servico-tag servico-tag--novo">Novo</div>
-            <div class="servico-num">05</div>
-            <div class="servico-icon">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-                />
-              </svg>
-            </div>
-            <h3>WhatsApp Business</h3>
-            <p>
-              Configuramos seu WhatsApp para comunicação profissional, com
-              respostas automáticas e organização eficiente do atendimento.
-            </p>
-            <ul class="servico-features">
-              <li>Mensagem de saudação automática</li>
-              <li>Mensagem de ausência configurada</li>
-              <li>Respostas rápidas personalizadas</li>
-              <li>Organização do atendimento</li>
-            </ul>
-          </div>
-
-          <div class="servico-card servico-novo reveal">
-            <div class="servico-tag servico-tag--novo">Novo</div>
-            <div class="servico-num">06</div>
-            <div class="servico-icon">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <rect width="20" height="20" x="2" y="2" rx="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-            </div>
-            <h3>Instagram profissional</h3>
-            <p>
-              Estruturamos seu perfil no Instagram com conteúdo estratégico,
-              destaques organizados e calendário de posts para construir
-              autoridade.
-            </p>
-            <ul class="servico-features">
-              <li>Bio e destaques configurados</li>
-              <li>Calendário de conteúdo mensal</li>
-              <li>Conteúdo de autoridade</li>
-              <li>Integração com outros canais</li>
-            </ul>
-          </div>
-          <div
-            class="servicos-cta reveal"
-            style="text-align: center; margin-top: 2.5rem"
-          >
-            <a href="vendas.html" class="btn btn-gold btn-lg"
-              >Conhecer planos</a
-            >
+<!-- ══ DEPOIMENTOS ══ -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="s-eyebrow">O que dizem os clientes</div>
+    <h2>Quem já está <span>no digital</span></h2>
+    <p class="s-sub">A opinião de quem colocou o negócio na internet com a WK Studio.</p>
+    <div class="dep-grid">
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Antes de ter o site, a gente só vendia por indicação. Depois que a WK Studio criou o site e colocou a gente no Google, clientes novos começaram a entrar em contato pelo WhatsApp toda semana."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">🔧</div>
+          <div>
+            <div class="dep-name">MG Automecânica</div>
+            <div class="dep-role">Oficina mecânica — Bahia</div>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- PROJETOS -->
-    <section class="projetos" id="projetos">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">Casos de sucesso</span>
-          <h2 class="section-title">
-            Resultados <span class="gold">concretos</span>
-          </h2>
-          <p class="section-sub">
-            Exemplos de empresas que transformaram sua presença digital e
-            colheram os frutos de uma estratégia consistente.
-          </p>
-        </div>
-    
-        <div class="projetos-grid">
-    
-          <!-- PROJETO 1 -->
-          <div class="projeto-card reveal">
-            <div class="projeto-img projeto-img--oficina">
-              <div class="projeto-overlay">
-                <span class="projeto-segmento">Oficina Mecânica</span>
-              </div>
-    
-              <img src="mg-automecanica-card.jpg" alt="MG Automecânica" class="projeto-doce-image" />
-    
-              <div class="projeto-mockup">
-                <div class="pm-header">
-                  <div class="pm-logo"></div>
-                  <div class="pm-nav">
-                    <span></span><span></span><span></span>
-                  </div>
-                </div>
-    
-                <div class="pm-hero">
-                  <div class="pm-title gold-bg"></div>
-                  <div class="pm-subtitle"></div>
-                  <div class="pm-cta"></div>
-                </div>
-    
-                <div class="pm-cards">
-                  <div class="pm-card"></div>
-                  <div class="pm-card"></div>
-                  <div class="pm-card"></div>
-                </div>
-              </div>
-            </div>
-    
-            <div class="projeto-info">
-              <h3>MG Automecânica</h3>
-              <p>
-                Oficina especializada em motores e câmbio que conquistou mais
-                clientes com site profissional focado em conversão e WhatsApp
-                integrado para agendamentos.
-              </p>
-              <div class="projeto-tags">
-                <span>Site</span><span>WhatsApp</span><span>Conversão</span>
-              </div>
-              <a href="https://mg-automecanicaa.vercel.app/" class="projeto-link" target="_blank" rel="noopener noreferrer">
-                Ver projeto
-              </a>
-            </div>
-          </div>
-    
-          <!-- PROJETO 2 -->
-          <div class="projeto-card reveal">
-            <div class="projeto-img projeto-img--doce">
-              <div class="projeto-overlay">
-                <span class="projeto-segmento">Alimentação</span>
-              </div>
-    
-              <img src="doce-sabor-card.jpg" alt="Doce Sabor" class="projeto-doce-image" />
-    
-              <div class="projeto-mockup projeto-mockup--warm">
-                <div class="pm-header">
-                  <div class="pm-logo pm-logo--elegant"></div>
-                  <div class="pm-nav">
-                    <span></span><span></span><span></span>
-                  </div>
-                </div>
-    
-                <div class="pm-hero">
-                  <div class="pm-badge-mock pm-badge-mock--fruit"></div>
-                  <div class="pm-title elegant"></div>
-                  <div class="pm-subtitle"></div>
-                  <div class="pm-cta pm-cta--warm"></div>
-                </div>
-    
-                <div class="pm-products">
-                  <div class="pm-product"></div>
-                  <div class="pm-product"></div>
-                  <div class="pm-product"></div>
-                </div>
-              </div>
-            </div>
-    
-            <div class="projeto-info">
-              <h3>Doce Sabor</h3>
-              <p>
-                Produtora de geleias artesanais que expandiu vendas online com
-                e-commerce completo, carrinho inteligente e integração total com
-                WhatsApp.
-              </p>
-              <div class="projeto-tags">
-                <span>E-commerce</span><span>WhatsApp</span><span>Carrinho</span>
-              </div>
-              <a href="https://doce-sabor-gamma.vercel.app/" class="projeto-link" target="_blank" rel="noopener noreferrer">
-                Ver projeto
-              </a>
-            </div>
-          </div>
-    
-        </div>
-      </div>
-    </section>
-
-    <!-- DIFERENCIAL -->
-    <section class="diferencial" id="diferencial">
-      <div class="container">
-        <div class="diferencial-content reveal">
-          <div class="diferencial-quote">
-            <p>
-              Desenvolvemos soluções digitais completas e integradas, focando em
-              resultados sustentáveis e crescimento consistente para seu
-              negócio.
-            </p>
-          </div>
-          <div class="diferencial-items">
-            <div class="dif-item">
-              <div class="dif-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                </svg>
-              </div>
-              <div>
-                <h4>Entrega rápida</h4>
-                <p>
-                  Processo otimizado para colocar suas soluções no ar em tempo
-                  recorde
-                </p>
-              </div>
-            </div>
-            <div class="dif-item">
-              <div class="dif-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
-              </div>
-              <div>
-                <h4>Foco em qualidade</h4>
-                <p>
-                  Cada solução é desenvolvida com atenção aos detalhes e
-                  melhores práticas
-                </p>
-              </div>
-            </div>
-            <div class="dif-item">
-              <div class="dif-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <path
-                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h4>Suporte dedicado</h4>
-                <p>
-                  Atendimento personalizado e suporte contínuo para suas
-                  necessidades
-                </p>
-              </div>
-            </div>
-            <div class="dif-item">
-              <div class="dif-icon">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="m9 12 2 2 4-4" />
-                </svg>
-              </div>
-              <div>
-                <h4>Processo transparente</h4>
-                <p>
-                  Comunicação clara e acompanhamento em todas as etapas do
-                  projeto
-                </p>
-              </div>
-            </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"O Welky fez tudo certinho, explicou cada etapa e entregou no prazo. O site ficou lindo e profissional. Já recebi elogios dos clientes sobre a aparência da loja online."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">🍓</div>
+          <div>
+            <div class="dep-name">Doce Sabor</div>
+            <div class="dep-role">Geleias artesanais — Bahia</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- MANUTENÇÃO -->
-    <section class="manutencao" id="manutencao">
-      <div class="container">
-        <div class="manutencao-inner">
-          <div class="manut-text reveal">
-            <span class="section-tag">Após a entrega</span>
-            <h2 class="section-title">
-              Manutenção e <span class="gold">suporte contínuo</span>
-            </h2>
-            <p>
-              Oferecemos serviços de manutenção para garantir que suas soluções
-              digitais estejam sempre atualizadas e funcionando perfeitamente.
-            </p>
-            <div class="manut-items">
-              <div class="manut-item">
-                <span class="check">✓</span
-                ><span>Atualização de conteúdo e informações</span>
-              </div>
-              <div class="manut-item">
-                <span class="check">✓</span
-                ><span>Monitoramento e correção técnica</span>
-              </div>
-              <div class="manut-item">
-                <span class="check">✓</span><span>Backup regular do site</span>
-              </div>
-              <div class="manut-item">
-                <span class="check">✓</span
-                ><span>Suporte técnico especializado</span>
-              </div>
-              <div class="manut-item">
-                <span class="check">✓</span
-                ><span>Otimização e melhorias contínuas</span>
-              </div>
-            </div>
-            <a href="#contato" class="btn btn-gold" id="manutencaoWhatsapp"
-              >Saiba mais sobre manutenção</a
-            >
-          </div>
-          <div class="manut-visual reveal">
-            <div class="manut-card">
-              <div class="manut-card-icon">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.2"
-                >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
-              </div>
-              <h4>Plano de Manutenção</h4>
-              <p>A partir de <strong class="gold">R$ 197/mês</strong></p>
-              <ul>
-                <li>✓ Suporte dedicado</li>
-                <li>✓ Atualizações incluídas</li>
-                <li>✓ Sistema sempre no ar</li>
-              </ul>
-            </div>
-          </div>
+<!-- ══ MANUTENÇÃO ══ -->
+<section id="manutencao">
+  <div class="container">
+    <div class="s-eyebrow">Após a entrega</div>
+    <h2>Manutenção e <span>suporte contínuo</span></h2>
+    <p class="s-sub">Sua presença digital precisa estar sempre atualizada. Cuidamos disso por você.</p>
+    <div class="man-inner">
+      <div>
+        <div class="man-list">
+          <div class="man-item"><div class="man-check">✓</div>Atualização de conteúdo e informações</div>
+          <div class="man-item"><div class="man-check">✓</div>Monitoramento e correção técnica</div>
+          <div class="man-item"><div class="man-check">✓</div>Backup regular do site</div>
+          <div class="man-item"><div class="man-check">✓</div>Suporte técnico especializado</div>
+          <div class="man-item"><div class="man-check">✓</div>Otimizações e melhorias contínuas</div>
+          <div class="man-item"><div class="man-check">✓</div>Atualização de preços, fotos e textos</div>
         </div>
       </div>
-    </section>
+      <div class="man-plan">
+        <div class="man-plan-label">Plano de Manutenção</div>
+        <div class="man-plan-price">R$ 197<small>/mês</small></div>
+        <div class="man-plan-sub">Tudo cuidado, você foca no negócio</div>
+        <div class="man-plan-items">
+          <div class="man-plan-item">Suporte dedicado via WhatsApp</div>
+          <div class="man-plan-item">Atualizações ilimitadas de conteúdo</div>
+          <div class="man-plan-item">Site sempre no ar, sem surpresas</div>
+        </div>
+        <a class="btn-primary" style="justify-content:center" href="https://wa.me/5577999684834?text=Olá!+Quero+saber+mais+sobre+o+plano+de+manutenção." target="_blank">Quero esse plano</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- CONTATO -->
-    <section class="diagnostico" id="contato">
-      <div class="diag-bg"><div class="diag-glow"></div></div>
-      <div class="container">
-        <div class="diag-inner reveal">
-          <div class="diag-text">
-            <span class="section-tag">Vamos conversar</span>
-            <h2 class="section-title">
-              Pronto para <span class="gold">transformar</span> seu negócio
-              digital?
-            </h2>
-            <p>
-              Entre em contato conosco para discutir suas necessidades e
-              descobrir como podemos ajudar sua empresa a crescer no ambiente
-              digital.
-            </p>
-            <ul class="diag-lista">
-              <li>
-                <span class="check">✓</span> Análise personalizada do seu
-                negócio
-              </li>
-              <li><span class="check">✓</span> Proposta sob medida</li>
-              <li><span class="check">✓</span> Acompanhamento dedicado</li>
-              <li><span class="check">✓</span> Suporte completo</li>
-            </ul>
-          </div>
-          <div class="diag-cta-box">
-            <div class="diag-card">
-              <p class="diag-card-label">Entre em contato</p>
-              <h3>Fale conosco</h3>
-              <p>
-                Envie uma mensagem com detalhes sobre seu negócio. Retornaremos
-                o contato rapidamente para iniciar nossa conversa.
-              </p>
-              <a
-                href="#"
-                class="btn btn-gold btn-block btn-xl"
-                id="diagWhatsapp"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-                  />
-                </svg>
-                Iniciar conversa
-              </a>
-              <p class="diag-note">Resposta rápida · Sem compromisso</p>
-            </div>
-          </div>
+<!-- ══ CONTATO ══ -->
+<section id="contato">
+  <div class="container">
+    <div class="contato-inner">
+      <div class="contato-left">
+        <div class="s-eyebrow">Vamos conversar</div>
+        <h2>Pronto para atrair<br>mais <span>clientes?</span></h2>
+        <p>Conta um pouco sobre seu negócio. Respondemos em menos de 2 horas e te passamos uma proposta personalizada — sem compromisso.</p>
+        <div class="contato-perks">
+          <div class="contato-perk">Análise personalizada do seu negócio</div>
+          <div class="contato-perk">Proposta sob medida e sem enrolação</div>
+          <div class="contato-perk">Entrega em até 7 dias úteis</div>
+          <div class="contato-perk">Suporte incluso por 30 dias</div>
         </div>
       </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div class="footer-brand">
-          <a href="#hero" class="logo">WK<span>Studio</span></a>
-          <p>
-            Soluções digitais completas para empresas locais que desejam crescer
-            e se destacar no mercado.
-          </p>
+      <div>
+        <div class="contato-form">
+          <div class="form-title">Fale conosco</div>
+          <div class="form-sub">Preencha abaixo ou chame direto no WhatsApp.</div>
+          <div class="form-group">
+            <label class="form-label">Seu nome</label>
+            <input class="form-input" id="f-nome" type="text" placeholder="Como você se chama?">
+          </div>
+          <div class="form-group">
+            <label class="form-label">WhatsApp</label>
+            <input class="form-input" id="f-tel" type="tel" placeholder="(00) 00000-0000">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tipo de negócio</label>
+            <select class="form-select" id="f-tipo">
+              <option value="">Selecione...</option>
+              <option>Restaurante / Lanchonete</option>
+              <option>Barbearia / Salão</option>
+              <option>Clínica / Consultório</option>
+              <option>Oficina / Auto</option>
+              <option>Comércio / Loja</option>
+              <option>Serviços gerais</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">O que você precisa? (opcional)</label>
+            <textarea class="form-textarea" id="f-msg" placeholder="Ex: quero um site e aparecer no Google..."></textarea>
+          </div>
+          <button class="form-btn" onclick="enviarWA()">
+            Enviar mensagem <span>→</span>
+          </button>
+          <div class="form-note">Resposta em até 2 horas · Sem compromisso</div>
         </div>
+        <a class="whatsapp-direct" href="https://wa.me/5577999684834?text=Olá!+Vim+pelo+site+e+quero+saber+mais+sobre+as+soluções+da+WK+Studio." target="_blank">
+          <div class="wa-icon">💬</div>
+          <div class="wa-text">
+            <strong>Prefere chamar direto no WhatsApp?</strong>
+            <span>(77) 99968-4834 · Resposta rápida</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq">
+  <div class="container">
+    <div class="s-eyebrow">Dúvidas frequentes</div>
+    <h2>Perguntas que todo<br>cliente <span>faz antes</span></h2>
+    <p class="s-sub">Respondemos aqui para você já chegar no WhatsApp pronto para começar.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quanto tempo leva para ficar pronto?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Sites são entregues em 7 dias úteis após a aprovação do briefing. Google Meu Negócio leva em média 3 dias. Identidade visual de 5 a 7 dias. Projetos do plano Premium podem levar até 15 dias por conta do volume de entregas. Você acompanha tudo em tempo real pelo WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Como funciona o pagamento?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Pagamento único por projeto, sem mensalidade obrigatória. Aceitamos Pix, cartão de crédito (parcelado) e transferência bancária. Geralmente é 50% no início e 50% na entrega, mas isso é conversado caso a caso. O plano de manutenção mensal é opcional e separado.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          E se eu não gostar do resultado?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Durante o desenvolvimento você acompanha e aprova cada etapa — não entregamos nada sem sua aprovação. Incluímos até 2 rodadas de ajustes no prazo sem custo extra. Se depois da entrega surgir algo que precisa de correção, o suporte de 30 dias cobre isso.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Você atende fora da Bahia?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Sim! Atendo clientes em todo o Brasil. Como trabalhamos 100% online, a distância não é obstáculo. O processo todo acontece pelo WhatsApp e as reuniões são por videochamada se necessário. Já atendemos clientes de vários estados.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Preciso entender de tecnologia para usar o site?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Não. Entregamos tudo configurado e pronto para usar. Além disso, fazemos um treinamento rápido pelo WhatsApp mostrando como atualizar textos, fotos e informações básicas. E durante os 30 dias de suporte estou disponível para qualquer dúvida que aparecer.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          O site vai aparecer no Google automaticamente?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Todos os sites que fazemos já saem configurados com SEO básico — isso acelera muito o processo de indexação. Para buscas locais (Google Maps), o Google Meu Negócio configurado faz toda a diferença. Resultados orgânicos no Google levam de semanas a poucos meses, dependendo da concorrência da sua área.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Qual plano é ideal para mim?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Depende do estágio do seu negócio. Se está começando do zero ou precisa de algo rápido e funcional, o Essencial resolve. Se quer uma presença completa e profissional, o Profissional é o mais indicado. Para negócios que querem dominar o mercado local com conteúdo e automações, o Premium é o caminho. Use a calculadora abaixo ou me chame no WhatsApp que eu te indico na hora.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          O que acontece depois da entrega?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Você fica com 30 dias de suporte grátis para tirar dúvidas e pedir pequenos ajustes. Depois disso, há o plano de manutenção mensal por R$197 para quem quiser que a gente continue cuidando de tudo — atualizações, backups e monitoramento. Sem contrato de fidelidade.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CALCULADORA ══ -->
+<section id="calculadora">
+  <div class="container">
+    <div class="s-eyebrow">Qual plano é o meu?</div>
+    <h2>Descubra o plano <span>ideal</span><br>para o seu negócio</h2>
+    <p class="s-sub">Responda 3 perguntas rápidas e receba uma recomendação personalizada.</p>
+
+    <div class="calc-wrap">
+      <div class="calc-progress">
+        <div class="calc-prog-step done" id="prog-1"></div>
+        <div class="calc-prog-step" id="prog-2"></div>
+        <div class="calc-prog-step" id="prog-3"></div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="calc-step active" id="step-1">
+        <div class="calc-q">Qual é o seu tipo de negócio?</div>
+        <div class="calc-hint">Isso nos ajuda a entender o que faz mais sentido para a sua área.</div>
+        <div class="calc-options">
+          <div class="calc-opt" onclick="selectOpt(this, 1, 'servico')"><span class="calc-opt-icon">🔧</span> Prestação de serviços (barbearia, oficina, salão, clínica...)</div>
+          <div class="calc-opt" onclick="selectOpt(this, 1, 'alimentacao')"><span class="calc-opt-icon">🍽️</span> Alimentação (restaurante, lanchonete, delivery, confeitaria...)</div>
+          <div class="calc-opt" onclick="selectOpt(this, 1, 'comercio')"><span class="calc-opt-icon">🛍️</span> Comércio / loja (física ou online)</div>
+          <div class="calc-opt" onclick="selectOpt(this, 1, 'profissional')"><span class="calc-opt-icon">💼</span> Profissional autônomo (consultor, fotógrafo, designer...)</div>
+        </div>
+        <div class="calc-nav">
+          <button class="calc-btn-next" id="next-1" disabled onclick="goStep(2)">Próxima →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="calc-step" id="step-2">
+        <div class="calc-q">O que você já tem hoje?</div>
+        <div class="calc-hint">Vamos partir do que existe para evitar retrabalho.</div>
+        <div class="calc-options">
+          <div class="calc-opt" onclick="selectOpt(this, 2, 'nada')"><span class="calc-opt-icon">🚀</span> Nada ainda — quero começar do zero</div>
+          <div class="calc-opt" onclick="selectOpt(this, 2, 'basico')"><span class="calc-opt-icon">📱</span> Só WhatsApp e/ou Instagram informal</div>
+          <div class="calc-opt" onclick="selectOpt(this, 2, 'site-ruim')"><span class="calc-opt-icon">🌐</span> Tenho site, mas está desatualizado ou feio</div>
+          <div class="calc-opt" onclick="selectOpt(this, 2, 'presente')"><span class="calc-opt-icon">✅</span> Já tenho site e redes — quero melhorar tudo</div>
+        </div>
+        <div class="calc-nav">
+          <button class="calc-btn-back" onclick="goStep(1)">← Voltar</button>
+          <button class="calc-btn-next" id="next-2" disabled onclick="goStep(3)">Próxima →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="calc-step" id="step-3">
+        <div class="calc-q">Qual é seu principal objetivo?</div>
+        <div class="calc-hint">Isso define o que vai ter mais impacto para você.</div>
+        <div class="calc-options">
+          <div class="calc-opt" onclick="selectOpt(this, 3, 'aparecer')"><span class="calc-opt-icon">🔍</span> Aparecer no Google e ser encontrado</div>
+          <div class="calc-opt" onclick="selectOpt(this, 3, 'profissional')"><span class="calc-opt-icon">💎</span> Parecer mais profissional e gerar confiança</div>
+          <div class="calc-opt" onclick="selectOpt(this, 3, 'vender')"><span class="calc-opt-icon">💰</span> Vender mais e atrair clientes constantemente</div>
+          <div class="calc-opt" onclick="selectOpt(this, 3, 'automatizar')"><span class="calc-opt-icon">⚡</span> Automatizar atendimento e organizar a operação</div>
+        </div>
+        <div class="calc-nav">
+          <button class="calc-btn-back" onclick="goStep(2)">← Voltar</button>
+          <button class="calc-btn-next" id="next-3" disabled onclick="showResult()">Ver meu plano ideal →</button>
+        </div>
+      </div>
+
+      <!-- RESULTADO -->
+      <div class="calc-result" id="calc-result">
+        <div class="calc-result-badge">Recomendação personalizada</div>
+        <div class="calc-result-plan" id="res-plan"></div>
+        <div class="calc-result-why" id="res-why"></div>
+        <div class="calc-result-price" id="res-price"></div>
+        <div class="calc-result-items" id="res-items"></div>
+        <div class="calc-result-btns">
+          <a class="btn-primary" id="res-wa" href="#" target="_blank">💬 Quero esse plano</a>
+          <a class="btn-ghost" href="vendas.html#planos">Ver todos os planos</a>
+        </div>
+        <div class="calc-restart" onclick="restartCalc()">↺ Responder novamente</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">WK<span>Studio</span></div>
+        <p class="footer-brand-desc">Soluções digitais completas para negócios locais na Bahia. Sites, Google, Instagram e WhatsApp integrados para você crescer.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navegação</div>
         <div class="footer-links">
-          <h5>Navegação</h5>
-          <a href="#contexto">O Problema</a>
+          <a href="#contexto">Por que digital</a>
+          <a href="#servicos">Soluções</a>
           <a href="#processo">Como funciona</a>
-          <a href="#servicos">Serviços</a>
-          <a href="vendas.html#planos">Planos</a>
+          <a href="#projetos">Projetos</a>
+          <a href="#sobre">Sobre</a>
+          <a href="vendas.html">Planos</a>
           <a href="#manutencao">Manutenção</a>
-          <a href="#contato">Contato</a>
-        </div>
-        <div class="footer-contato">
-          <h5>Contato</h5>
-          <a href="#" id="footerWhatsapp">WhatsApp — (77) 99968-4834</a>
-          <a href="mailto:wk.oliveira24@gmail.com">wk.oliveira24@gmail.com</a>
-          <a
-            href="https://instagram.com/wk_studi0"
-            target="_blank"
-            rel="noopener noreferrer"
-            >@wk_studi0</a
-          >
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2025 WK Studio · Welky Kauã · Todos os direitos reservados.</p>
+      <div>
+        <div class="footer-col-title">Contato</div>
+        <div class="footer-links">
+          <a href="https://wa.me/5577999684834" target="_blank">💬 (77) 99968-4834</a>
+          <a href="mailto:wk.oliveira24@gmail.com">✉ wk.oliveira24@gmail.com</a>
+          <a href="https://instagram.com/wk_studi0" target="_blank">📱 @wk_studi0</a>
+          <a href="#" style="color:var(--dim); cursor:default;">📍 Bahia, Brasil</a>
+        </div>
       </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 WK Studio · Welky Kauã · Todos os direitos reservados.</div>
+      <a href="vendas.html" style="font-size:12px; color:var(--accent);">Ver planos →</a>
+    </div>
+  </div>
+</footer>
 
-    <!-- WHATSAPP FIXO -->
-    <a
-      href="#"
-      class="whatsapp-float"
-      id="whatsappFloat"
-      aria-label="Falar no WhatsApp"
-    >
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-        <path
-          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-        />
+<!-- ══ MODAL ══ -->
+<div class="modal-overlay" id="overlay" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    <div class="modal-icon" id="m-icon"></div>
+    <div class="modal-name" id="m-name"></div>
+    <div class="modal-tagline" id="m-tagline"></div>
+    <div class="modal-desc" id="m-desc"></div>
+    <div class="modal-section-title">O que está incluído</div>
+    <ul class="modal-included" id="m-included"></ul>
+    <div class="modal-section-title">Detalhes</div>
+    <div class="modal-meta" id="m-meta"></div>
+    <a id="m-cta" class="modal-cta" href="#" target="_blank">Falar sobre este serviço no WhatsApp →</a>
+  </div>
+</div>
+
+<script>
+const WA = '5577999684834';
+
+const services = [
+  { icon:'🌐', name:'Sites', tagline:'Sua empresa na internet do jeito certo', desc:'Site profissional e responsivo que carrega rápido e leva o cliente direto para o contato.', bullets:['Site profissional e responsivo','Entrega em 7 dias','Otimizado para aparecer no Google'], fullDesc:'Criamos sites modernos, rápidos e otimizados que representam sua empresa com credibilidade. Cada projeto é desenvolvido pensando na experiência do visitante e na conversão em clientes — com botão de WhatsApp integrado, SEO básico e design responsivo para funcionar perfeitamente em qualquer dispositivo.', included:['Design exclusivo e responsivo','Integração com WhatsApp','SEO básico configurado','Formulário de contato','Google Analytics integrado','Hospedagem incluída no 1º mês'], prazo:'7 dias úteis', tipo:'Qualquer tipo de negócio' },
+  { icon:'📍', name:'Google Meu Negócio', tagline:'Seja encontrado por quem está perto de você', desc:'Apareça no topo do Google Maps quando alguém procura pelo seu serviço na sua cidade.', bullets:['Configuração e otimização completa','Aparece nas buscas locais do Google','Gerenciamento de avaliações'], fullDesc:'Configuramos e otimizamos seu perfil no Google Meu Negócio para que sua empresa apareça nas buscas locais com foto, horário, avaliações e informações completas. É a forma mais eficiente de atrair clientes que já estão procurando pelo seu serviço na sua região.', included:['Criação ou recuperação do perfil','Preenchimento completo das informações','Upload de fotos profissionais','Configuração para receber avaliações','Categorias e serviços otimizados','Orientação para gerenciar avaliações'], prazo:'3 dias úteis', tipo:'Negócios com atendimento local' },
+  { icon:'🎨', name:'Identidade Visual', tagline:'Uma marca que as pessoas lembram', desc:'Logo, paleta de cores e tipografia que fazem seu negócio parecer sério e profissional.', bullets:['Logo, paleta de cores e tipografia','Arquivos prontos para digital e impresso','Conceito exclusivo para o seu negócio'], fullDesc:'Desenvolvemos uma identidade visual completa e exclusiva para o seu negócio — desde o logotipo até a paleta de cores e tipografia. Tudo pensado para passar confiança, ser reconhecível e funcionar em qualquer aplicação, do cartão de visita ao Instagram.', included:['Logotipo em 3 variações','Paleta de cores definida','Tipografia selecionada','Guia de uso da marca','Arquivos em .PNG, .SVG e .PDF','Aplicação básica: cartão e papel timbrado'], prazo:'5 a 7 dias úteis', tipo:'Negócios que querem se destacar' },
+  { icon:'🖼️', name:'Edição de Imagens', tagline:'Imagens que valorizam o seu negócio', desc:'Fotos tratadas e banners criados para site, Google e Instagram com identidade visual.', bullets:['Tratamento e edição profissional','Adequação para redes sociais e site','Entrega rápida e em alta resolução'], fullDesc:'Tratamos, editamos e criamos imagens profissionais para todos os canais digitais do seu negócio. Fotos com qualidade geram confiança antes mesmo do cliente falar com você — e fazem seu negócio parecer maior e mais estabelecido.', included:['Tratamento de fotos do negócio','Criação de banners e posts','Imagens otimizadas para web','Formatos para Stories e Feed','Até 10 peças por pacote','Consistência com a identidade visual'], prazo:'2 a 4 dias úteis', tipo:'Qualquer tipo de negócio' },
+  { icon:'💬', name:'WhatsApp Business', tagline:'Atenda seus clientes de forma profissional', desc:'Configuração completa com catálogo, mensagens automáticas e perfil profissional.', bullets:['Configuração completa do perfil','Catálogo de produtos e serviços','Mensagens automáticas de boas-vindas e ausência'], fullDesc:'Transformamos seu WhatsApp em um canal de atendimento profissional e eficiente. Com perfil completo, catálogo de serviços, mensagens automáticas e respostas rápidas, você nunca perde um cliente por falta de resposta ou organização.', included:['Migração para WhatsApp Business','Perfil profissional configurado','Catálogo de produtos/serviços','Mensagem de boas-vindas personalizada','Mensagem de ausência configurada','Até 10 respostas rápidas'], prazo:'1 a 2 dias úteis', tipo:'Negócios que usam WhatsApp para vender' },
+  { icon:'📱', name:'Instagram Profissional', tagline:'Presença constante e conteúdo que engaja', desc:'Gestão completa do perfil com produção de conteúdo e relatório mensal de resultados.', bullets:['Gestão completa do perfil','Produção e agendamento de conteúdo','Relatório mensal de desempenho'], fullDesc:'Estruturamos e gerenciamos seu Instagram para construir autoridade, engajar seguidores e transformá-los em clientes. Cuidamos de tudo: bio, destaques, conteúdo semanal, hashtags estratégicas e análise de resultados mensais.', included:['Bio e destaques configurados','Calendário editorial mensal','12 posts por mês (feed + stories)','Artes com identidade visual','Legendas otimizadas','Relatório mensal de alcance e engajamento'], prazo:'Contrato mensal — início em 5 dias', tipo:'Negócios que querem crescer no Instagram' },
+  { icon:'⚙️', name:'Plataformas de Gerenciamento', tagline:'Organize seu negócio em um só lugar', desc:'Sistema personalizado para gestão de clientes, estoque, serviços e controle financeiro.', bullets:['Gestão de clientes, estoque e serviços','Controle financeiro e de pagamentos','Personalizado para o seu tipo de negócio'], fullDesc:'Configuramos e personalizamos plataformas de gestão adaptadas ao seu tipo de negócio. Seja uma barbearia, salão, clínica ou loja — você terá controle total dos seus clientes, finanças e operações em um único sistema.', included:['Análise das necessidades do negócio','Configuração da plataforma','Cadastro inicial de produtos/serviços','Treinamento para uso do sistema','Integração com WhatsApp quando possível','Suporte por 30 dias após entrega'], prazo:'5 a 10 dias úteis', tipo:'Negócios com operação recorrente' },
+  { icon:'📅', name:'Agendamento Online', tagline:'Seus clientes agendam a qualquer hora', desc:'Sistema integrado ao WhatsApp e site para agendamentos automáticos sem conflitos.', bullets:['Sistema integrado ao WhatsApp e site','Notificações automáticas de confirmação','Sem conflitos de horário'], fullDesc:'Implementamos um sistema de agendamento online que permite aos seus clientes marcarem horários a qualquer momento, sem precisar te ligar. Com confirmações automáticas pelo WhatsApp, lembretes antes do horário e bloqueio inteligente de conflitos.', included:['Sistema de agendamento online','Link de agendamento personalizado','Integração com WhatsApp','Confirmação automática por mensagem','Lembrete 24h antes do horário','Painel de controle da agenda'], prazo:'3 a 5 dias úteis', tipo:'Barbearias, clínicas, salões e serviços por horário' },
+  { icon:'🔔', name:'Notificações via WhatsApp', tagline:'Cobranças e lembretes no automático', desc:'Avisos de pagamento, lembretes de agendamento e alertas automáticos para seus clientes.', bullets:['Avisos de pagamento e vencimento','Lembretes de agendamento','Redução de inadimplência e faltas'], fullDesc:'Automatizamos o envio de notificações importantes para seus clientes via WhatsApp: lembretes de consultas, avisos de vencimento, confirmações de pedido e cobranças automáticas. Menos faltas, menos inadimplência, menos trabalho manual.', included:['Configuração do sistema de automação','Mensagens de cobrança personalizadas','Lembretes de agendamento (24h e 1h antes)','Avisos de vencimento de serviços/contratos','Mensagens pós-atendimento','Relatório de envios mensais'], prazo:'3 a 5 dias úteis', tipo:'Negócios com recorrência ou agendamento' },
+  { icon:'✍️', name:'Produção de Conteúdo', tagline:'Conteúdo consistente sem você se preocupar', desc:'Posts, legendas e artes para redes sociais com identidade visual mantida em tudo.', bullets:['Posts, legendas e artes para redes sociais','Calendário editorial mensal','Identidade visual mantida em tudo'], fullDesc:'Produzimos o conteúdo completo para as redes sociais do seu negócio — artes, fotos, vídeos curtos e legendas estratégicas. Com um calendário editorial mensal, sua presença online é consistente e profissional sem você precisar pensar nisso.', included:['Planejamento mensal de conteúdo','Artes para feed e stories','Legendas com gatilhos de engajamento','Hashtags pesquisadas por nicho','Até 15 peças por mês','Relatório de performance mensal'], prazo:'Contrato mensal — início em 5 dias', tipo:'Qualquer negócio com presença no Instagram/Facebook' },
+  { icon:'🍽️', name:'Cardápios Digitais', tagline:'Seu cardápio sempre atualizado e acessível', desc:'Cardápio via QR Code ou link com visual moderno e fácil de atualizar.', bullets:['Acesso via QR Code ou link','Fácil de atualizar quando quiser','Visual moderno e profissional'], fullDesc:'Criamos cardápios digitais modernos e fáceis de usar, acessíveis por QR Code ou link direto. Perfeito para restaurantes, lanchonetes, bares e delivery — com categorias organizadas, fotos dos pratos e atualização simples de preços e itens.', included:['Cardápio digital responsivo','QR Code personalizado com sua marca','Organização por categorias','Fotos dos produtos incluídas','Atualização de itens e preços','Link compartilhável para WhatsApp'], prazo:'3 a 5 dias úteis', tipo:'Restaurantes, lanchonetes, bares e delivery' }
+];
+
+function buildCards() {
+  const g = document.getElementById('serv-grid');
+  services.forEach((s, i) => {
+    const c = document.createElement('div');
+    c.className = 'serv-card';
+    c.innerHTML = `
+      <span class="serv-num">0${i+1}</span>
+      <div class="serv-icon">${s.icon}</div>
+      <div class="serv-name">${s.name}</div>
+      <div class="serv-tag">${s.tagline}</div>
+      <p class="serv-desc">${s.desc}</p>
+      <ul class="serv-bullets">${s.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+      <button class="btn-ver" onclick="openModal(${i})">Ver mais →</button>
+    `;
+    g.appendChild(c);
+  });
+}
+
+function openModal(i) {
+  const s = services[i];
+  document.getElementById('m-icon').textContent = s.icon;
+  document.getElementById('m-name').textContent = s.name;
+  document.getElementById('m-tagline').textContent = s.tagline;
+  document.getElementById('m-desc').textContent = s.fullDesc;
+  document.getElementById('m-included').innerHTML = s.included.map(x=>`<li>${x}</li>`).join('');
+  document.getElementById('m-meta').innerHTML = `<span class="modal-tag mt-prazo">⏱ ${s.prazo}</span><span class="modal-tag mt-tipo">🎯 ${s.tipo}</span>`;
+  const msg = encodeURIComponent(`Olá! Tenho interesse no serviço de ${s.name}. Pode me dar mais informações?`);
+  document.getElementById('m-cta').href = `https://wa.me/${WA}?text=${msg}`;
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModalBtn() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModal(e) { if (e.target === document.getElementById('overlay')) closeModalBtn(); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalBtn(); });
+
+function enviarWA() {
+  const nome = document.getElementById('f-nome').value.trim();
+  const tel  = document.getElementById('f-tel').value.trim();
+  const tipo = document.getElementById('f-tipo').value;
+  const msg  = document.getElementById('f-msg').value.trim();
+  if (!nome || !tel) { alert('Por favor, preencha seu nome e WhatsApp.'); return; }
+  const texto = `Olá! Me chamo ${nome}.\nWhatsApp: ${tel}\nTipo de negócio: ${tipo || 'Não informado'}\n${msg ? 'Preciso de: ' + msg : ''}`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(texto)}`, '_blank');
+}
+
+buildCards();
+
+/* ── FAQ ── */
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ── CALCULATOR ── */
+const answers = { 1: null, 2: null, 3: null };
+
+function selectOpt(el, step, val) {
+  el.closest('.calc-options').querySelectorAll('.calc-opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  answers[step] = val;
+  document.getElementById(`next-${step}`).disabled = false;
+}
+
+function goStep(n) {
+  document.querySelectorAll('.calc-step').forEach(s => s.classList.remove('active'));
+  document.getElementById(`step-${n}`).classList.add('active');
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById(`prog-${i}`).classList.toggle('done', i <= n);
+  }
+}
+
+function showResult() {
+  const plans = {
+    essencial: {
+      name: 'Plano Essencial',
+      price: 'R$ 347',
+      why: 'Com base nas suas respostas, o melhor caminho é começar com o essencial: um site profissional que funciona, com WhatsApp integrado e aparecendo no Google localmente. Simples, rápido e eficaz.',
+      items: ['Site de 1 página otimizado', 'WhatsApp integrado', 'Design responsivo e profissional', 'SEO básico para buscas locais', 'Suporte por 30 dias'],
+      msg: 'Olá! Fiz a calculadora no site e o plano Essencial foi indicado para mim. Quero saber mais.'
+    },
+    profissional: {
+      name: 'Plano Profissional',
+      price: 'R$ 1.197',
+      why: 'O Plano Profissional é o ideal para você. Ele cobre site completo, Google Meu Negócio, identidade visual e WhatsApp Business — tudo integrado para gerar clientes de forma consistente.',
+      items: ['Site até 5 páginas com foco em conversão', 'Google Meu Negócio otimizado', 'Identidade visual completa', 'WhatsApp Business configurado', 'SEO avançado', 'Suporte por 30 dias'],
+      msg: 'Olá! Fiz a calculadora no site e o plano Profissional foi indicado para mim. Quero saber mais.'
+    },
+    premium: {
+      name: 'Plano Premium',
+      price: 'R$ 2.697',
+      why: 'Você precisa de uma presença digital completa e estratégica. O Plano Premium cobre desde o site avançado até automações de WhatsApp, Instagram gerenciado e produção de conteúdo — para dominar seu mercado.',
+      items: ['Site avançado com múltiplas páginas', 'Google Meu Negócio completo', 'Identidade visual premium', 'Instagram estruturado com calendário', 'WhatsApp com automações', 'Produção de 15 peças de conteúdo', 'Suporte por 60 dias'],
+      msg: 'Olá! Fiz a calculadora no site e o plano Premium foi indicado para mim. Quero saber mais.'
+    }
+  };
+
+  let planKey = 'profissional';
+  const a1 = answers[1], a2 = answers[2], a3 = answers[3];
+
+  if (a2 === 'nada' && (a3 === 'aparecer' || a3 === 'profissional')) planKey = 'essencial';
+  else if (a3 === 'automatizar' || a2 === 'presente') planKey = 'premium';
+  else if (a3 === 'vender' && a2 !== 'nada') planKey = 'premium';
+  else planKey = 'profissional';
+
+  const p = plans[planKey];
+  document.getElementById('res-plan').textContent = p.name;
+  document.getElementById('res-why').textContent = p.why;
+  document.getElementById('res-price').innerHTML = `${p.price} <small>/projeto</small>`;
+  document.getElementById('res-items').innerHTML = p.items.map(i => `<div class="calc-result-item">${i}</div>`).join('');
+  document.getElementById('res-wa').href = `https://wa.me/${WA}?text=${encodeURIComponent(p.msg)}`;
+
+  document.querySelectorAll('.calc-step').forEach(s => s.classList.remove('active'));
+  document.querySelector('.calc-progress').style.display = 'none';
+  document.getElementById('calc-result').classList.add('show');
+}
+
+function restartCalc() {
+  answers[1] = answers[2] = answers[3] = null;
+  document.querySelectorAll('.calc-opt').forEach(o => o.classList.remove('selected'));
+  [1,2,3].forEach(n => document.getElementById(`next-${n}`).disabled = true);
+  document.querySelector('.calc-progress').style.display = 'flex';
+  document.getElementById('calc-result').classList.remove('show');
+  goStep(1);
+}
+</script>
+
+<!-- ══ WHATSAPP FLOAT ══ -->
+<div class="wa-float">
+  <div class="wa-float-tip">
+    <strong>Fale com a WK Studio</strong>
+    <span>Resposta em menos de 2h 👋</span>
+  </div>
+  <a href="https://wa.me/5577999684834?text=Olá!+Vim+pelo+site+da+WK+Studio+e+quero+saber+mais." target="_blank">
+    <div class="wa-float-bubble">
+      <div class="wa-float-dot"></div>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
       </svg>
-      <span class="whatsapp-pulse"></span>
-    </a>
+    </div>
+  </a>
+</div>
 
-    <script src="script.js"></script>
-  </body>
+</body>
 </html>
